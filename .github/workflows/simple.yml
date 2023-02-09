@@ -1,22 +1,16 @@
-name: practice
+name: Python application
 
 on: push
 
 jobs:
-   ubuntu:
-     runs-on: ubuntu-latest
-     steps:
-      - run: date
+   build:
       
-   windows:
-     runs-on: windows-latest
-     steps:
-      - run: date
+      runs-on: ubuntu-latest
       
-   depends:
-     needs: [ubuntu,windows]
-     runs-on: macos-latest
-     steps:
-      - run: date
+      steps:
+         - name: Check out the code
+         - uses: actions/checkout@v3
+         - name: Python Syntax Checker
+         - uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
      
    
